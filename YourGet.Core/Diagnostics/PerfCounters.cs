@@ -90,14 +90,10 @@ namespace YourGet.Core.Diagnostics
 
         public class PerfStats
         {
-            public double Average
-            { get; private set; }
-            public double Max
-            { get; private set; }
-            public double Min
-            { get; private set; }
-            public int Samples
-            { get; private set; }
+            public double Average { get; private set; }
+            public double Max { get; private set; }
+            public double Min { get; private set; }
+            public int Samples { get; private set; }
 
             public PerfStats(double average, double max, double min, int samples)
             {

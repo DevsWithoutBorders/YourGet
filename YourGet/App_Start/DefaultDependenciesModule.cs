@@ -2,7 +2,7 @@
 using Autofac;
 using YourGet.Core.Configuration;
 using YourGet.Core.Diagnostics;
-using YourGet.Core.Enums;
+using YourGet.Core.Enum;
 using YourGet.Core.Services;
 
 namespace YourGet
@@ -17,6 +17,11 @@ namespace YourGet
             builder.Register(c => configuration.Current)
                    .AsSelf()
                    .As<IAppConfiguration>();
+
+            builder.RegisterType<FileSystemService>()
+                .AsSelf()
+                .As<IFileSystemService>()
+                .SingleInstance();
 
             switch (configuration.Current.StorageType)
             {
@@ -33,6 +38,13 @@ namespace YourGet
                 .AsSelf()
                 .As<IDiagnosticsService>()
                 .SingleInstance();
+
+            builder.RegisterType<ContentService>()
+                .AsSelf()
+                .As<IContentService>()
+                .SingleInstance();
+
+            
 
             base.Load(builder);
         }

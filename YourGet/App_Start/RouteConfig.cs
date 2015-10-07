@@ -1,23 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace YourGet
 {
-    public class RouteConfig
+    public static class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            RouteConfig.RegisterUIRoutes(routes);
-            RouteConfig.RegisterNuGetApiV2Routes(routes);
-        }
-
-        public static void RegisterUIRoutes(RouteCollection routes)
-        {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            RegisterApiV2Routes(routes);
 
             routes.MapRoute(
                 name: "Default",
@@ -26,16 +18,16 @@ namespace YourGet
             );
         }
 
-        public static void RegisterNuGetApiV2Routes(RouteCollection routes)
+        private static void RegisterApiV2Routes(RouteCollection routes)
         {
             // V2 routes
             routes.MapRoute(
                 RouteName.Team,
                 "api/v2/team",
-                defaults: new { controller = "Api", action = "Team" },
+                defaults: new { controller = "NuGetV2Api", action = "Team" },
                 constraints: new { httpMethod = new HttpMethodConstraint("GET") });
 
-            routes.MapRoute(
+            /*routes.MapRoute(
                 "v2" + RouteName.VerifyPackageKey,
                 "api/v2/verifykey/{id}/{version}",
                 new
@@ -106,7 +98,7 @@ namespace YourGet
             routes.MapRoute(
                 RouteName.DownloadNuGetExe,
                 "nuget.exe",
-                new { controller = "Api", action = "GetNuGetExeApi" });
+                new { controller = "Api", action = "GetNuGetExeApi" });*/
         }
     }
 }

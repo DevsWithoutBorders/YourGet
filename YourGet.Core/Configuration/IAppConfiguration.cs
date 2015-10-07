@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Net.Mail;
-using YourGet.Core.Enums;
+using YourGet.Core.Enum;
 
 namespace YourGet.Core.Configuration
 {

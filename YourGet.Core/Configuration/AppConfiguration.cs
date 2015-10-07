@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Net.Mail;
-using YourGet.Core.Enums;
+using YourGet.Core.Enum;
 
 namespace YourGet.Core.Configuration
 {
