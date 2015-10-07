@@ -8,6 +8,7 @@ namespace YourGet
     {
         public void Configuration(IAppBuilder app)
         {
+//Test
             ConfigureAuth(app);
         }
     }
