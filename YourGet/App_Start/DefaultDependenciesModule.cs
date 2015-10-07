@@ -1,6 +1,7 @@
 ﻿using System;
 using Autofac;
 using YourGet.Core.Configuration;
+using YourGet.Core.Diagnostics;
 using YourGet.Core.Enums;
 using YourGet.Core.Services;
 
@@ -27,6 +28,11 @@ namespace YourGet
                     ConfigureForAzureStorage(builder, configuration);
                     break;
             }
+
+            builder.RegisterType<DiagnosticsService>()
+                .AsSelf()
+                .As<IDiagnosticsService>()
+                .SingleInstance();
 
             base.Load(builder);
         }
