@@ -1,26 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 using YourGet.Core;
 using YourGet.Core.Services;
 
 namespace YourGet.Controllers
 {
-    public class NuGetApiV2Controller : AppController
+    public class NuGetV2ApiController : Controller
     {
-        public IContentService ContentService
-        { get; set; }
+        IContentService ContentService { get; set; }
 
-        protected NuGetApiV2Controller()
-        {
-        }
+        protected NuGetV2ApiController() { }
 
-        public NuGetApiV2Controller(IContentService contentService)
+        public NuGetV2ApiController(IContentService contentService)
         {
             ContentService = contentService;
         }
 
-        public virtual async Task<ActionResult> Team()
+        public async Task<ActionResult> Team()
         {
             var team = await ContentService.GetContentItemAsync(Constants.ContentNames.Team, TimeSpan.FromHours(1));
             return Content(team.ToString(), "application/json");

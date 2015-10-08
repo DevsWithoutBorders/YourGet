@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web;
@@ -15,7 +14,7 @@ namespace YourGet
 {
     public partial class Startup
     {
-        public bool HasRun { get; set; };
+        public bool HasRun { get; set; }
 
         // This method is auto-detected by the OWIN pipeline. DO NOT RENAME IT!
         public void Configuration(IAppBuilder app)

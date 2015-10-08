@@ -15,7 +15,7 @@ namespace YourGet.Core.Services
     {
         private const string _settingPrefix = "Gallery.";
         private const string _featurePrefix = "Feature.";
-        private bool _notInCloud;
+        //private bool _notInCloud;
         private IAppConfiguration _current;
         private readonly Lazy<string> _httpSiteRootThunk;
         private readonly Lazy<string> _httpsSiteRootThunk;
@@ -23,8 +23,8 @@ namespace YourGet.Core.Services
 
         public ConfigurationService()
         {
-           // _httpSiteRootThunk = new Lazy<string>(GetHttpSiteRoot);
-           // _httpsSiteRootThunk = new Lazy<string>(GetHttpsSiteRoot);
+           _httpSiteRootThunk = new Lazy<string>(GetHttpSiteRoot);
+           _httpsSiteRootThunk = new Lazy<string>(GetHttpsSiteRoot);
         }
 
         public virtual IAppConfiguration Current

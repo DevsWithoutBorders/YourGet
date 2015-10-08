@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace YourGet.Core.Diagnostics
 {
@@ -14,8 +11,7 @@ namespace YourGet.Core.Diagnostics
         private const string ObjectName = "TraceDiagnosticsSource";
         private TraceSource _source;
 
-        public string Name
-        { get; private set; }
+        public string Name { get; private set; }
 
         public TraceDiagnosticsSource(string name)
         {

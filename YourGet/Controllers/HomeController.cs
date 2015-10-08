@@ -10,8 +10,6 @@ namespace YourGet.Controllers
     {
         public ActionResult Index()
         {
-            
-
             return View();
         }
 
